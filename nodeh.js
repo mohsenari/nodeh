@@ -1,12 +1,13 @@
 const axios = require('axios');
 
-export class Nodeh {
+class Nodeh {
     constructor() {
         this.baseUrl = "";
         this.path = "";
         this.method = "GET"
         this.data = {};
         this.headers = {};
+        this.timeout = 20000;
 
     }
 
@@ -35,11 +36,20 @@ export class Nodeh {
         return this;
     }
 
+    // addTimeout(timeout) {
+    //     this.timeout = timeout;
+    //     return this;
+    // }
+
     send() {
-        axios.request({
+        const request = {
             method: this.method,
             url: this.baseUrl + this.path,
             data: this.data
-        })
+        };
+        console.log(request);
+        return axios.request(request)
     }
 }
+
+module.exports = Nodeh;
