@@ -1,11 +1,11 @@
 {
   "name": "nodeh",
-  "version": "0.1.0",
-  "description": "A standalone http server based on node.js",
-  "main": "server.js",
+  "version": "1.0.0",
+  "description": "a handy http request wrapper for axios",
+  "main": "noedh.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node nodeh.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/mohsenari/nodeh#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "axios": "0.18.0"
   }
 }
