@@ -1,6 +1,6 @@
 {
   "name": "nodeh",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "a handy http request wrapper for axios",
   "main": "noedh.js",
   "scripts": {

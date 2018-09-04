@@ -1,37 +1,44 @@
-## Welcome to GitHub Pages
+# Nodeh
 
-You can use the [editor on GitHub](https://github.com/mohsenari/nodejsWebApp/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Nodeh (pronounced node-h) is a simple utility class that wraps Axios' HTTP request module to simplify the usage by chaining methods which at then end, the code is readable and easy to understand.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Installation
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```js
+npm i Nodeh
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Usage
 
-### Jekyll Themes
+Nodeh is a class so you need to import and then instantiate it. Then the methods can be chained together to complete an HTTP request.
+```js
+const nodeh = require('nodeh');
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mohsenari/nodejsWebApp/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
+// example 1: GET request
+let get_request = new nodeh();
+get_request
+    .addUrl('http://bing.com')                           //add the url of the request
+    .send()                                              //send the request
+    .then( (result) => { console.log(result.data) } )    //what happens on success
+    .catch( (error) => { console.log(error) } )          //what happens on error
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+// example 2: POST request
+let post_request = new nodeh();
+request
+    .addUrl('https://reqres.in')                         //can also use addUrl('https://reqres.in/api/user')
+    .addPath('/api/users')                               //and don't call addPath('/api/users')
+    .addMethod('POST')
+    .addHeaders({"Accept": "application/json"})
+    .addData({
+        name: "Channing Tatum",
+        quote: "My name is Jeff"
+    })
+    .send()
+    .then( result => { console.log(result.data) } )
+    .catch( error => { console.log(error) } )
+```
+---
+Go ahead and give it a try :)
+
+Please let me know of any feedback at [@mohsenari](https://twitter.com/mohsenari) on Twitter or [@mohsenari](https://github.com/mohsenari) on Github.

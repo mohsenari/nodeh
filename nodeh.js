@@ -36,10 +36,10 @@ class Nodeh {
         return this;
     }
 
-    // addTimeout(timeout) {
-    //     this.timeout = timeout;
-    //     return this;
-    // }
+    addTimeout(timeout) {
+        this.timeout = timeout;
+        return this;
+    }
 
     send() {
         const request = {
@@ -47,7 +47,6 @@ class Nodeh {
             url: this.baseUrl + this.path,
             data: this.data
         };
-        console.log(request);
         return axios.request(request)
     }
 }
