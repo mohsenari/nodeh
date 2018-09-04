@@ -5,7 +5,7 @@ Nodeh (pronounced node-h) is a simple utility class that wraps Axios' HTTP reque
 ## Installation
 
 ```js
-npm i Nodeh
+npm i nodeh
 ```
 
 ## Usage
